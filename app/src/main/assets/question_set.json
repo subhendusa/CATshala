@@ -28,7 +28,7 @@
       {
         "id" : 2,
         "questionNo": 2,
-        "text" : "Let S be the set of rational numbers with the following properties:\n1. 1/2 ∈ S;\n2. If x ∈ S, then both 1/(x+1) ∈ S and x/(x+1) ∈ S\nWhich of the following is true?",
+        "text" : "Let S be the set of rational numbers with the following properties:\n\t1. 1/2 ∈ S;\n\t2. If x ∈ S, then both 1/(x+1) ∈ S and x/(x+1) ∈ S\nWhich of the following is true?",
         "options" : [
           {
             "id" : 1,
@@ -74,7 +74,7 @@
       {
         "id" : 4,
         "questionNo": 4,
-        "text" : "Consider the following statements:\nWhen two straight lines intersect, then:\n1. adjacent angles are complementary\n2. adjacent angles are supplementary\n3. opposite angles are equal\n4. opposite angles are supplementary\nOf these statements:",
+        "text" : "Consider the following statements:\nWhen two straight lines intersect, then:\n\t1. adjacent angles are complementary\n\t2. adjacent angles are supplementary\n\t3. opposite angles are equal\n\t4. opposite angles are supplementary\nOf these statements:",
         "options" : [
           {
             "id" : 1,
