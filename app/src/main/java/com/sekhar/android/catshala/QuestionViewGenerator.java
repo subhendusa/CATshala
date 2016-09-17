@@ -45,12 +45,16 @@ public class QuestionViewGenerator {
 }
 
 class QuestionAdapter extends ArrayAdapter<Question> {
+    Context context;
+
     public QuestionAdapter(Context context, List<Question> questions) {
         super(context, 0, questions);
+        this.context = context;
     }
 
     public QuestionAdapter(Context context, int resource, List<Question> questions) {
         super(context, resource, questions);
+        this.context = context;
     }
 
     @Override
@@ -65,7 +69,7 @@ class QuestionAdapter extends ArrayAdapter<Question> {
         }
 
         // Lookup view for data population
-        TextView tvQuestion = (TextView) convertView.findViewById(R.id.question);
+        TextView tvQuestion = (TextView) convertView.findViewById(R.id.question_text_id);
         CheckBox cbOption1 = (CheckBox) convertView.findViewById(R.id.option1);
         CheckBox cbOption2 = (CheckBox) convertView.findViewById(R.id.option2);
         CheckBox cbOption3 = (CheckBox) convertView.findViewById(R.id.option3);
