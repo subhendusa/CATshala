@@ -1,53 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FCE4EC"
     android:paddingBottom="8dp"
     android:paddingLeft="8dp"
     android:paddingRight="8dp"
     android:paddingTop="8dp"
-    android:background="#FCE4EC"
     android:theme="@style/MaterialTheme"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.sekhar.android.catshala.MainActivity"
-    tools:showIn="@layout/app_bar_main">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <ListView
-        android:id="@+id/questions_list_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        >
-    </ListView>
-
-    <RelativeLayout
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/border"
-        >
-        <TextClock
-            android:id="@+id/current_timer_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:format12Hour="hh:mm:ss a"
-            android:padding="10dp"
-            android:textColor="#f00"
-            android:textSize="20sp"
-            android:layout_alignParentLeft="true"
-            />
+        android:layout_height="match_parent" />
 
-        <TextClock
-            android:id="@+id/elapsed_timer_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:format12Hour="hh:mm:ss a"
-            android:padding="10dp"
-            android:textColor="#f00"
-            android:textSize="20sp"
-            android:layout_alignParentRight="true"
-            />
-    </RelativeLayout>
 </RelativeLayout>

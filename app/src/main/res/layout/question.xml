@@ -21,11 +21,12 @@
         android:paddingTop="8dp">
 
         <TextView
-            android:id="@+id/question"
+            android:id="@+id/question_text_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <android.support.v7.widget.GridLayout
+            android:id="@+id/question_options_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
