@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1089926094019",
+    "project_id": "firebase-catshala"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089926094019:android:6e1ad22f227d42fa",
+        "android_client_info": {
+          "package_name": "com.sekhar.android.catshala"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089926094019-965aohvbutvd4nrqvvm9vvmbjdcs6qk2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sekhar.android.catshala",
+            "certificate_hash": "6D0D1C8B75D08CF37C6B01842D92AD23ECFA5839"
+          }
+        },
+        {
+          "client_id": "1089926094019-doka54nbn2cv2256b4u1f2139s3u7nj0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCI_wGl0kMd_LGH9rlU57LZ__69tCzX9e8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
