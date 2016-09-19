@@ -17,7 +17,8 @@
           "client_type": 1,
           "android_info": {
             "package_name": "com.sekhar.android.catshala",
-            "certificate_hash": "6D0D1C8B75D08CF37C6B01842D92AD23ECFA5839"
+            /*"certificate_hash": "6D0D1C8B75D08CF37C6B01842D92AD23ECFA5839"*/
+            "certificate_hash": "8C48655A97C4C19004661A769B8EB4388DF0C8AE"
           }
         },
         {
