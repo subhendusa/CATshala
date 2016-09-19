@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -20,6 +21,7 @@ public class BaseActivity extends AppCompatActivity implements
     private static final String TAG = "BaseActivity";
     protected GoogleApiClient mGoogleApiClient;
     protected GoogleSignInOptions gso;
+    protected static GoogleSignInAccount signInAccount;
 
     @Override
     public void onClick(View view) {

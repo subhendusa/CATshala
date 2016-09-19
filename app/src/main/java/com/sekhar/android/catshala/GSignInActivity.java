@@ -87,8 +87,8 @@ public class GSignInActivity extends BaseActivity {
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
             // Signed in successfully, show authenticated UI.
-            GoogleSignInAccount acct = result.getSignInAccount();
-            mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
+            signInAccount = result.getSignInAccount();
+            mStatusTextView.setText(getString(R.string.signed_in_fmt, signInAccount.getDisplayName()));
             updateUI(true);
         } else {
             // Signed out, show unauthenticated UI.

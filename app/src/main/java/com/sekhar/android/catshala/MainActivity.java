@@ -12,6 +12,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.common.api.ResultCallback;
@@ -40,6 +42,9 @@ public class MainActivity extends BaseActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        View header = navigationView.getHeaderView(0);
+        ((TextView) header.findViewById(R.id.profile_email_id)).setText(signInAccount.getEmail());
+        ((TextView) header.findViewById(R.id.profile_display_name)).setText(signInAccount.getDisplayName());
     }
 
     @Override
@@ -84,13 +89,10 @@ public class MainActivity extends BaseActivity
         if (id == R.id.navigation_exams) {
             switchFragment(new ExamFragment());
             getSupportActionBar().setTitle(item.getTitle());
-            return true;
         } else if (id == R.id.app_sign_out) {
             signOut();
-            return true;
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

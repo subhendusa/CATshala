@@ -21,10 +21,10 @@
         android:id="@+id/navigation_secondary"
         android:checkableBehavior="none">
         <item
-            android:id="@+id/navigation_log_out"
+            android:id="@+id/app_sign_out"
             android:checkable="false"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Log Out"/>
+            android:title="Sign Out"/>
     </group>
 
 </menu>
