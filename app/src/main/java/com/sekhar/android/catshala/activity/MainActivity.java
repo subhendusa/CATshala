@@ -1,4 +1,4 @@
-package com.sekhar.android.catshala;
+package com.sekhar.android.catshala.activity;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -15,10 +15,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.sekhar.android.catshala.R;
 import com.sekhar.android.catshala.fragment.ExamFragment;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -45,6 +49,13 @@ public class MainActivity extends BaseActivity
         View header = navigationView.getHeaderView(0);
         ((TextView) header.findViewById(R.id.profile_email_id)).setText(signInAccount.getEmail());
         ((TextView) header.findViewById(R.id.profile_display_name)).setText(signInAccount.getDisplayName());
+
+        CircleImageView profileImageView = (CircleImageView) header.findViewById(R.id.profile_image);
+
+        if (signInAccount.getPhotoUrl() != null) {
+            Glide.with(getApplicationContext()).load(signInAccount.getPhotoUrl())
+                    .into(profileImageView);
+        }
     }
 
     @Override
