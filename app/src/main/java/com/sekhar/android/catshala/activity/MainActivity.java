@@ -21,6 +21,7 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.sekhar.android.catshala.R;
 import com.sekhar.android.catshala.fragment.ExamFragment;
+import com.sekhar.android.catshala.fragment.HomeFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -59,6 +60,8 @@ public class MainActivity extends BaseActivity
             Glide.with(getApplicationContext()).load(signInAccount.getPhotoUrl())
                     .into(profileImageView);
         }
+
+        switchFragment(new HomeFragment());
     }
 
     @Override
