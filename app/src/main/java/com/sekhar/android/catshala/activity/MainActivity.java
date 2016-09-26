@@ -16,9 +16,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.sekhar.android.catshala.FbSignInUtils;
+import com.sekhar.android.catshala.GoogleSignInUtils;
 import com.sekhar.android.catshala.R;
 import com.sekhar.android.catshala.fragment.ExamFragment;
 import com.sekhar.android.catshala.fragment.HomeFragment;
@@ -30,9 +31,12 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    @BindView(R.id.drawer_layout) DrawerLayout drawer;
-    @BindView(R.id.toolbar) Toolbar toolbar;
-    @BindView(R.id.nav_view) NavigationView navigationView;
+    @BindView(R.id.drawer_layout)
+    DrawerLayout drawer;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.nav_view)
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,13 +55,13 @@ public class MainActivity extends BaseActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         View header = navigationView.getHeaderView(0);
-        ((TextView) header.findViewById(R.id.profile_email_id)).setText(signInAccount.getEmail());
+        ((TextView) header.findViewById(R.id.profile_email_id)).setText(signInAccount.getEmailId());
         ((TextView) header.findViewById(R.id.profile_display_name)).setText(signInAccount.getDisplayName());
 
         CircleImageView profileImageView = (CircleImageView) header.findViewById(R.id.profile_image);
 
-        if (signInAccount.getPhotoUrl() != null) {
-            Glide.with(getApplicationContext()).load(signInAccount.getPhotoUrl())
+        if (signInAccount.getPhotoUri() != null) {
+            Glide.with(getApplicationContext()).load(signInAccount.getPhotoUri())
                     .into(profileImageView);
         }
 
@@ -115,14 +119,23 @@ public class MainActivity extends BaseActivity
     }
 
     private void signOut() {
-        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
-                new ResultCallback<Status>() {
+        switch (GoogleSignInActivity.getSignInMode()) {
+            case GOOGLE: {
+                ResultCallback<Status> callback = new ResultCallback<Status>() {
                     @Override
                     public void onResult(Status status) {
-                        Intent signInToMain = new Intent(MainActivity.this, GSignInActivity.class);
+                        Intent signInToMain = new Intent(MainActivity.this, GoogleSignInActivity.class);
                         startActivity(signInToMain);
                     }
-                });
+                };
+                GoogleSignInUtils.signOut(callback);
+                break;
+            }
+            case FACEBOOK:
+                FbSignInUtils.signOut();
+                //defaultSignout();
+                break;
+        }
     }
 
     void switchFragment(Fragment fragment) {
