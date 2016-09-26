@@ -18,8 +18,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
-import com.sekhar.android.catshala.FbSignInUtils;
-import com.sekhar.android.catshala.GoogleSignInUtils;
+import com.sekhar.android.catshala.utils.FbSignInUtils;
+import com.sekhar.android.catshala.utils.GoogleSignInUtils;
 import com.sekhar.android.catshala.R;
 import com.sekhar.android.catshala.fragment.ExamFragment;
 import com.sekhar.android.catshala.fragment.HomeFragment;
@@ -119,13 +119,12 @@ public class MainActivity extends BaseActivity
     }
 
     private void signOut() {
-        switch (GoogleSignInActivity.getSignInMode()) {
+        switch (SignInActivity.getSignInMode()) {
             case GOOGLE: {
                 ResultCallback<Status> callback = new ResultCallback<Status>() {
                     @Override
                     public void onResult(Status status) {
-                        Intent signInToMain = new Intent(MainActivity.this, GoogleSignInActivity.class);
-                        startActivity(signInToMain);
+                        defaultSignOut();
                     }
                 };
                 GoogleSignInUtils.signOut(callback);
@@ -133,12 +132,17 @@ public class MainActivity extends BaseActivity
             }
             case FACEBOOK:
                 FbSignInUtils.signOut();
-                //defaultSignout();
+                defaultSignOut();
                 break;
         }
     }
 
-    void switchFragment(Fragment fragment) {
+    private void defaultSignOut() {
+        Intent signInToMain = new Intent(MainActivity.this, SignInActivity.class);
+        startActivity(signInToMain);
+    }
+
+    private void switchFragment(Fragment fragment) {
 
         FragmentManager manager = getFragmentManager();
         FragmentTransaction fragmentTransaction = manager.beginTransaction();

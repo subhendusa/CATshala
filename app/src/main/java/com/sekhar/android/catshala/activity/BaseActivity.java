@@ -5,9 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
+import com.facebook.ProfileTracker;
 import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -21,8 +22,13 @@ public class BaseActivity extends AppCompatActivity implements
         View.OnClickListener {
 
     private static final String TAG = "BaseActivity";
+
     public static GoogleApiClient mGoogleApiClient;
     protected GoogleSignInOptions gso;
+
+    protected CallbackManager callbackManager;
+    protected ProfileTracker profileTracker;
+
     public static UserProfile signInAccount = new UserProfile();
 
     @Override

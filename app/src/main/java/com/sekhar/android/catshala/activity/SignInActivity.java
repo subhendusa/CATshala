@@ -6,42 +6,33 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.Profile;
+import com.facebook.ProfileTracker;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
-import com.sekhar.android.catshala.FbSignInUtils;
-import com.sekhar.android.catshala.GoogleSignInUtils;
+import com.sekhar.android.catshala.utils.FbSignInUtils;
+import com.sekhar.android.catshala.utils.GoogleSignInUtils;
 import com.sekhar.android.catshala.R;
 
 /**
  * Activity to demonstrate basic retrieval of the Google user's ID, email address, and basic
  * profile.
  */
-public class GoogleSignInActivity extends BaseActivity {
+public class SignInActivity extends BaseActivity {
 
     private static final String TAG = "GSignInActivity";
     private static final int RC_SIGN_IN = 9001;
     private static SignInMode signInMode;
     private ProgressDialog mProgressDialog;
-
-    public static SignInMode getSignInMode() {
-        if (signInMode != null) {
-            return signInMode;
-        } else {
-            if (FbSignInUtils.isLoggedIn()) {
-                return SignInMode.FACEBOOK;
-            } else {
-                return SignInMode.GOOGLE;
-            }
-        }
-    }
-
-    public void setSignInMode(SignInMode signInMode) {
-        this.signInMode = signInMode;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,12 +40,39 @@ public class GoogleSignInActivity extends BaseActivity {
 
         setContentView(R.layout.activity_login);
 
-        // Button listeners
         findViewById(R.id.google_sign_in_button).setOnClickListener(this);
+        findViewById(R.id.fb_sign_in_button).setOnClickListener(this);
 
         SignInButton signInButton = (SignInButton) findViewById(R.id.google_sign_in_button);
-        signInButton.setSize(SignInButton.SIZE_STANDARD);
+        //signInButton.setSize(SignInButton.SIZE_STANDARD);
         signInButton.setScopes(gso.getScopeArray());
+
+        callbackManager = CallbackManager.Factory.create();
+
+        LoginManager.getInstance().registerCallback(callbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        updateUI();
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        updateUI();
+                    }
+
+                    @Override
+                    public void onError(FacebookException exception) {
+                        updateUI();
+                    }
+
+                });
+        profileTracker = new ProfileTracker() {
+            @Override
+            protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
+                updateUI();
+            }
+        };
     }
 
     @Override
@@ -80,12 +98,30 @@ public class GoogleSignInActivity extends BaseActivity {
         }
     }
 
+
+
+    /*@Override
+    protected void onResume() {
+        super.onResume();
+        updateUI();
+    }*/
+
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if(FbSignInUtils.isLoggedIn()) {
+            profileTracker.stopTracking();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
-        if (requestCode == RC_SIGN_IN) {
+        if(getSignInMode().equals(SignInMode.FACEBOOK)) {
+            callbackManager.onActivityResult(requestCode, resultCode, data);
+        } else if(getSignInMode().equals(SignInMode.GOOGLE) && requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             handleSignInResult(result);
         }
@@ -129,22 +165,16 @@ public class GoogleSignInActivity extends BaseActivity {
 
         } else if (getSignInMode().equals(SignInMode.GOOGLE)) {
 
-            findViewById(R.id.google_sign_in_button).setVisibility(View.GONE);
+            //findViewById(R.id.google_sign_in_button).setVisibility(View.GONE);
             Intent signInToMain = new Intent(this, MainActivity.class);
             startActivity(signInToMain);
         }
     }
 
-    // [START handleSignInResult]
     private void handleSignInResult(GoogleSignInResult result) {
-        Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
-            // Signed in successfully, show authenticated UI.
             GoogleSignInUtils.setUserProfile(result.getSignInAccount());
             updateUI();
-        } else {
-            // Signed out, show unauthenticated UI.
-            //updateUI(false);
         }
     }
 
@@ -162,6 +192,22 @@ public class GoogleSignInActivity extends BaseActivity {
         if (mProgressDialog != null && mProgressDialog.isShowing()) {
             mProgressDialog.hide();
         }
+    }
+
+    public static SignInMode getSignInMode() {
+        if (signInMode != null) {
+            return signInMode;
+        } else {
+            if(FbSignInUtils.isLoggedIn()) {
+                return SignInMode.FACEBOOK;
+            } else {
+                return SignInMode.GOOGLE;
+            }
+        }
+    }
+
+    public void setSignInMode(SignInMode signInMode) {
+        this.signInMode = signInMode;
     }
 
     public enum SignInMode {

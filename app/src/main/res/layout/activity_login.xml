@@ -6,7 +6,7 @@
     android:background="@color/pink_700"
     android:orientation="vertical"
     android:weightSum="4"
-    tools:context=".activity.GSignInActivity">
+    tools:context=".activity.SignInActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

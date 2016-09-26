@@ -1,22 +1,11 @@
-package com.sekhar.android.catshala;
+package com.sekhar.android.catshala.utils;
 
-import android.content.Intent;
-import android.util.Log;
-
-import com.facebook.AccessToken;
-import com.facebook.CallbackManager;
-import com.facebook.Profile;
-import com.facebook.ProfileTracker;
-import com.facebook.login.LoginManager;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.sekhar.android.catshala.UserProfile;
 import com.sekhar.android.catshala.activity.BaseActivity;
-import com.sekhar.android.catshala.activity.GSignInActivity;
-import com.sekhar.android.catshala.activity.MainActivity;
-import com.sekhar.android.catshala.activity.SignInActivity;
 
 /**
  * Activity to demonstrate basic retrieval of the Google user's ID, email address, and basic
@@ -31,7 +20,7 @@ public class GoogleSignInUtils {
 
     public static void setUserProfile(GoogleSignInAccount googleSignInAccount) {
 
-        UserProfile signInAccount = SignInActivity.signInAccount;
+        UserProfile signInAccount = BaseActivity.signInAccount;
         signInAccount.setDisplayName(googleSignInAccount.getDisplayName());
         signInAccount.setEmailId(googleSignInAccount.getEmail());
         signInAccount.setPhotoUri(googleSignInAccount.getPhotoUrl());
