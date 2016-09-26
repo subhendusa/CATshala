@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">CATshala</string>
     <string name="title_text">CATshala</string>
+    <string name="facebook_app_id">1205603706177825</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

@@ -19,7 +19,7 @@ public class BaseActivity extends AppCompatActivity implements
         View.OnClickListener {
 
     private static final String TAG = "BaseActivity";
-    protected GoogleApiClient mGoogleApiClient;
+    public static GoogleApiClient mGoogleApiClient;
     protected GoogleSignInOptions gso;
     protected static GoogleSignInAccount signInAccount;
 

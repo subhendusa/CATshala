@@ -17,12 +17,12 @@
 
         <ImageView
             android:id="@+id/google_icon"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="@dimen/g_top_margin"
             android:contentDescription="@string/desc_google_icon"
-            android:src="@drawable/googleg_color" />
+            android:src="@drawable/cat_logo_trans" />
 
         <TextView
             android:id="@+id/title_text"
@@ -63,15 +63,30 @@
         android:layout_weight="1"
         android:background="@color/pink_900">
 
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/google_sign_in_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:visibility="visible"
-            tools:visibility="gone" />
-
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/google_sign_in_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="visible"
+                tools:visibility="gone" />
+
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/fb_sign_in_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                />
+
+        </LinearLayout>
+
+
+        <!--<LinearLayout
             android:id="@+id/sign_out_and_disconnect"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -97,7 +112,7 @@
                 android:layout_weight="1"
                 android:text="@string/disconnect"
                 android:theme="@style/AppTheme.AppBarOverlay" />
-        </LinearLayout>
+        </LinearLayout>-->
 
     </RelativeLayout>
 
