@@ -13,6 +13,7 @@ import com.facebook.Profile;
 import com.facebook.ProfileTracker;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.SignInButton;
@@ -22,6 +23,8 @@ import com.google.android.gms.common.api.Status;
 import com.sekhar.android.catshala.utils.FbSignInUtils;
 import com.sekhar.android.catshala.utils.GoogleSignInUtils;
 import com.sekhar.android.catshala.R;
+
+import java.util.Arrays;
 
 /**
  * Activity to demonstrate basic retrieval of the Google user's ID, email address, and basic
@@ -44,10 +47,12 @@ public class SignInActivity extends BaseActivity {
         findViewById(R.id.fb_sign_in_button).setOnClickListener(this);
 
         SignInButton signInButton = (SignInButton) findViewById(R.id.google_sign_in_button);
-        //signInButton.setSize(SignInButton.SIZE_STANDARD);
         signInButton.setScopes(gso.getScopeArray());
 
         callbackManager = CallbackManager.Factory.create();
+
+        LoginButton loginButton = (LoginButton) findViewById(R.id.fb_sign_in_button);
+        loginButton.setReadPermissions(Arrays.asList("public_profile", "email"));
 
         LoginManager.getInstance().registerCallback(callbackManager,
                 new FacebookCallback<LoginResult>() {

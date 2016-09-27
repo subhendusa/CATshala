@@ -26,11 +26,13 @@ public class FbSignInUtils {
 
         UserProfile signInAccount = BaseActivity.signInAccount;
         if(signInAccount == null) {
-            signInAccount = new UserProfile();
+            BaseActivity.creaeNewProfile();
+            signInAccount = BaseActivity.signInAccount;
         }
         if (enableButtons && profile != null) {
+            signInAccount.setId(profile.getId());
             signInAccount.setDisplayName(profile.getName());
-            signInAccount.setPhotoUri(profile.getLinkUri());
+            signInAccount.setPhotoUrl(profile.getProfilePictureUri(200, 200));
         }
     }
 }

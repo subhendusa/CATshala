@@ -56,4 +56,8 @@ public class BaseActivity extends AppCompatActivity implements
     public void onConnectionFailed(ConnectionResult connectionResult) {
         Log.d(TAG, "onConnectionFailed:" + connectionResult);
     }
+
+    public static void creaeNewProfile() {
+        signInAccount = new UserProfile();
+    }
 }

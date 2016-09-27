@@ -60,8 +60,8 @@ public class MainActivity extends BaseActivity
 
         CircleImageView profileImageView = (CircleImageView) header.findViewById(R.id.profile_image);
 
-        if (signInAccount.getPhotoUri() != null) {
-            Glide.with(getApplicationContext()).load(signInAccount.getPhotoUri())
+        if (signInAccount.getPhotoUrl() != null) {
+            Glide.with(getApplicationContext()).load(signInAccount.getPhotoUrl())
                     .into(profileImageView);
         }
 
@@ -110,7 +110,10 @@ public class MainActivity extends BaseActivity
         if (id == R.id.navigation_exams) {
             switchFragment(new ExamFragment());
             getSupportActionBar().setTitle(item.getTitle());
-        } else if (id == R.id.app_sign_out) {
+        } /*else if (id == R.id.navigation_dashboard) {
+            switchFragment(new MathExprFragment());
+            getSupportActionBar().setTitle(item.getTitle());
+        } */else if (id == R.id.app_sign_out) {
             signOut();
         }
 
@@ -138,6 +141,7 @@ public class MainActivity extends BaseActivity
     }
 
     private void defaultSignOut() {
+        BaseActivity.signInAccount = null;
         Intent signInToMain = new Intent(MainActivity.this, SignInActivity.class);
         startActivity(signInToMain);
     }

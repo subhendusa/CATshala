@@ -9,7 +9,8 @@ public class UserProfile {
 
     private String displayName;
     private String emailId;
-    private Uri photoUri;
+    private Uri photoUrl;
+    private String id;
 
     public String getDisplayName() {
         return displayName;
@@ -27,11 +28,19 @@ public class UserProfile {
         this.emailId = emailId;
     }
 
-    public Uri getPhotoUri() {
-        return photoUri;
+    public Uri getPhotoUrl() {
+        return photoUrl;
     }
 
-    public void setPhotoUri(Uri photoUri) {
-        this.photoUri = photoUri;
+    public void setPhotoUrl(Uri photoUrl) {
+        this.photoUrl = photoUrl;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

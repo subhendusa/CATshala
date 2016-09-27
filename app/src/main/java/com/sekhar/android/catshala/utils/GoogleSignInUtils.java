@@ -22,11 +22,13 @@ public class GoogleSignInUtils {
 
         UserProfile signInAccount = BaseActivity.signInAccount;
         if(signInAccount == null) {
-            signInAccount = new UserProfile();
+            BaseActivity.creaeNewProfile();
+            signInAccount = BaseActivity.signInAccount;
         }
+        signInAccount.setId(googleSignInAccount.getId());
         signInAccount.setDisplayName(googleSignInAccount.getDisplayName());
         signInAccount.setEmailId(googleSignInAccount.getEmail());
-        signInAccount.setPhotoUri(googleSignInAccount.getPhotoUrl());
+        signInAccount.setPhotoUrl(googleSignInAccount.getPhotoUrl());
     }
 
    /* public static boolean isLoggedIn() {
@@ -39,7 +41,7 @@ public class GoogleSignInUtils {
         Profile profile = Profile.getCurrentProfile();
         if (enableButtons && profile != null) {
             signInAccount.setDisplayName(profile.getName());
-            signInAccount.setPhotoUri(profile.getLinkUri());
+            signInAccount.setPhotoUrl(profile.getLinkUri());
         }
     }*/
 }
