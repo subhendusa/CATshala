@@ -158,7 +158,7 @@ public class SignInActivity extends BaseActivity {
 
     private void updateUI() {
         if (FbSignInUtils.isLoggedIn()) {
-            FbSignInUtils.setUserProfile(signInAccount);
+            FbSignInUtils.setUserProfile();
 
             Intent signInToMain = new Intent(this, MainActivity.class);
             startActivity(signInToMain);

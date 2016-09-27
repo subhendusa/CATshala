@@ -63,56 +63,41 @@
         android:layout_weight="1"
         android:background="@color/pink_900">
 
-        <LinearLayout
+        <android.support.v7.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_gravity="fill_horizontal"
+            app:columnCount="2"
+            app:rowCount="1"
+            app:useDefaultMargins="true">
 
             <com.google.android.gms.common.SignInButton
                 android:id="@+id/google_sign_in_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
+                app:layout_column="0"
+                app:layout_columnWeight="1"
+                app:layout_row="0"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:orientation="vertical"
                 android:visibility="visible"
                 tools:visibility="gone" />
 
             <com.facebook.login.widget.LoginButton
                 android:id="@+id/fb_sign_in_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
+                app:layout_column="1"
+                app:layout_columnWeight="1"
+                app:layout_row="0"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
                 />
 
-        </LinearLayout>
-
-
-        <!--<LinearLayout
-            android:id="@+id/sign_out_and_disconnect"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:orientation="horizontal"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:visibility="gone"
-            tools:visibility="visible">
-
-            <Button
-                android:id="@+id/sign_out_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/sign_out"
-                android:theme="@style/AppTheme.AppBarOverlay" />
-
-            <Button
-                android:id="@+id/disconnect_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/disconnect"
-                android:theme="@style/AppTheme.AppBarOverlay" />
-        </LinearLayout>-->
+        </android.support.v7.widget.GridLayout>
 
     </RelativeLayout>
 

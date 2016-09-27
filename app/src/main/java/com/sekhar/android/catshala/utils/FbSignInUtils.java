@@ -4,6 +4,7 @@ import com.facebook.AccessToken;
 import com.facebook.Profile;
 import com.facebook.login.LoginManager;
 import com.sekhar.android.catshala.UserProfile;
+import com.sekhar.android.catshala.activity.BaseActivity;
 
 public class FbSignInUtils {
 
@@ -18,10 +19,15 @@ public class FbSignInUtils {
         return accessToken != null;
     }
 
-    public static void setUserProfile(UserProfile signInAccount) {
+    public static void setUserProfile() {
         boolean enableButtons = AccessToken.getCurrentAccessToken() != null;
 
         Profile profile = Profile.getCurrentProfile();
+
+        UserProfile signInAccount = BaseActivity.signInAccount;
+        if(signInAccount == null) {
+            signInAccount = new UserProfile();
+        }
         if (enableButtons && profile != null) {
             signInAccount.setDisplayName(profile.getName());
             signInAccount.setPhotoUri(profile.getLinkUri());

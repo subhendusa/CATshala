@@ -21,6 +21,9 @@ public class GoogleSignInUtils {
     public static void setUserProfile(GoogleSignInAccount googleSignInAccount) {
 
         UserProfile signInAccount = BaseActivity.signInAccount;
+        if(signInAccount == null) {
+            signInAccount = new UserProfile();
+        }
         signInAccount.setDisplayName(googleSignInAccount.getDisplayName());
         signInAccount.setEmailId(googleSignInAccount.getEmail());
         signInAccount.setPhotoUri(googleSignInAccount.getPhotoUrl());
