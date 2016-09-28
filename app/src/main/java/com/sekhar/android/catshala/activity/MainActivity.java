@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.sekhar.android.catshala.fragment.MathExprFragment;
 import com.sekhar.android.catshala.utils.FbSignInUtils;
 import com.sekhar.android.catshala.utils.GoogleSignInUtils;
 import com.sekhar.android.catshala.R;
@@ -110,10 +111,10 @@ public class MainActivity extends BaseActivity
         if (id == R.id.navigation_exams) {
             switchFragment(new ExamFragment());
             getSupportActionBar().setTitle(item.getTitle());
-        } /*else if (id == R.id.navigation_dashboard) {
+        } else if (id == R.id.navigation_dashboard) {
             switchFragment(new MathExprFragment());
             getSupportActionBar().setTitle(item.getTitle());
-        } */else if (id == R.id.app_sign_out) {
+        } else if (id == R.id.app_sign_out) {
             signOut();
         }
 
@@ -146,7 +147,7 @@ public class MainActivity extends BaseActivity
         startActivity(signInToMain);
     }
 
-    private void switchFragment(Fragment fragment) {
+    public void switchFragment(Fragment fragment) {
 
         FragmentManager manager = getFragmentManager();
         FragmentTransaction fragmentTransaction = manager.beginTransaction();

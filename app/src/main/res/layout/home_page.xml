@@ -1,156 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:grid="http://schemas.android.com/tools"
+
+<android.support.v7.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home_page_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:theme="@style/AppTheme.PopupOverlay"
-    card_view:cardCornerRadius="4dp"
-    card_view:cardElevation="8dp"
-    card_view:cardUseCompatPadding="true">
+    android:layout_gravity="fill_horizontal"
+    app:columnCount="2"
+    app:rowCount="3"
+    app:useDefaultMargins="true">
 
-    <android.support.v7.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/home_page_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="fill_horizontal"
-        app:columnCount="2"
-        app:rowCount="3"
-        app:useDefaultMargins="true">
-
-        <LinearLayout
-            app:layout_column="0"
-            app:layout_columnWeight="1"
-            app:layout_row="0"
-            app:layout_rowWeight="1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            >
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:paddingTop="@dimen/nav_header_vertical_spacing"
-            android:src="@drawable/ic_schedule_black_36dp"
-             />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:textSize="20sp"
-                android:text="Test">
-            </TextView>
-        </LinearLayout>
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:theme="@style/AppTheme.PopupOverlay"
+        app:layout_column="0"
+        app:layout_columnWeight="1"
+        app:layout_row="0"
+        app:layout_rowWeight="1"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="8dp"
+        card_view:cardUseCompatPadding="true">
 
         <LinearLayout
-            app:layout_column="1"
-            app:layout_columnWeight="1"
-            app:layout_row="0"
-            app:layout_rowWeight="1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:paddingTop="@dimen/nav_header_vertical_spacing"
-                android:src="@drawable/ic_face_black_36dp"
-                />
+                android:src="@drawable/ic_schedule_black_36dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:textSize="20sp"
-                android:text="Profile">
-            </TextView>
+                android:text="Test"
+                android:textSize="20sp"></TextView>
         </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:theme="@style/AppTheme.PopupOverlay"
+        app:layout_column="1"
+        app:layout_columnWeight="1"
+        app:layout_row="0"
+        app:layout_rowWeight="1"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="8dp"
+        card_view:cardUseCompatPadding="true">
 
         <LinearLayout
-            app:layout_column="0"
-            app:layout_columnWeight="1"
-            app:layout_row="1"
-            app:layout_rowWeight="1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:paddingTop="@dimen/nav_header_vertical_spacing"
-                android:src="@drawable/ic_track_changes_black_36dp"
-                />
+                android:src="@drawable/ic_face_black_36dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:textSize="20sp"
-                android:text="Archive">
-            </TextView>
+                android:text="Profile"
+                android:textSize="20sp"></TextView>
         </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:theme="@style/AppTheme.PopupOverlay"
+        app:layout_column="0"
+        app:layout_columnWeight="1"
+        app:layout_row="1"
+        app:layout_rowWeight="1"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="8dp"
+        card_view:cardUseCompatPadding="true">
 
         <LinearLayout
-            app:layout_column="1"
-            app:layout_columnWeight="1"
-            app:layout_row="1"
-            app:layout_rowWeight="1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:paddingTop="@dimen/nav_header_vertical_spacing"
-                android:src="@drawable/ic_date_range_black_36dp"
-                />
+                android:src="@drawable/ic_track_changes_black_36dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:textSize="20sp"
-                android:text="Schedule">
-            </TextView>
+                android:text="Archive"
+                android:textSize="20sp"></TextView>
         </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:theme="@style/AppTheme.PopupOverlay"
+        app:layout_column="1"
+        app:layout_columnWeight="1"
+        app:layout_row="1"
+        app:layout_rowWeight="1"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="8dp"
+        card_view:cardUseCompatPadding="true">
 
         <LinearLayout
-            app:layout_columnWeight="1"
-            app:layout_row="2"
-            app:layout_rowWeight="1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_columnSpan="2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:orientation="vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                android:src="@drawable/ic_date_range_black_36dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Schedule"
+                android:textSize="20sp"></TextView>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:theme="@style/AppTheme.PopupOverlay"
+        app:layout_column="0"
+        app:layout_columnWeight="1"
+        app:layout_row="2"
+        app:layout_rowWeight="1"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="8dp"
+        card_view:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="@drawable/border"
-            >
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:paddingTop="@dimen/nav_header_vertical_spacing"
-                android:src="@drawable/ic_visibility_black_36dp"
-                />
+                android:src="@drawable/ic_visibility_black_36dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:textSize="20sp"
-                android:text="Trending">
-            </TextView>
+                android:text="Trending"
+                android:textSize="20sp"></TextView>
         </LinearLayout>
+    </android.support.v7.widget.CardView>
 
-    </android.support.v7.widget.GridLayout>
-</android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/home_contribute"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:theme="@style/AppTheme.PopupOverlay"
+        app:layout_column="1"
+        app:layout_columnWeight="1"
+        app:layout_row="2"
+        app:layout_rowWeight="1"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="8dp"
+        card_view:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                android:src="@drawable/ic_add_black_36dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Contribute"
+                android:textSize="20sp"></TextView>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</android.support.v7.widget.GridLayout>
