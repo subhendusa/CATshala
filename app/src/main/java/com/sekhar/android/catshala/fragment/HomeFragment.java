@@ -25,6 +25,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().findViewById(R.id.home_contribute).setOnClickListener(this);
+        getActivity().findViewById(R.id.home_test).setOnClickListener(this);
     }
 
     @Override
@@ -32,6 +33,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.home_contribute:
                 ((MainActivity)getActivity()).switchFragment(new ContributeFragment());
+                break;
+            case R.id.home_test:
+                ((MainActivity)getActivity()).switchFragment(new ExamFragment());
                 break;
         }
     }

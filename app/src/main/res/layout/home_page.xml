@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <android.support.v7.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/home_page_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,8 +11,8 @@
     app:rowCount="3"
     app:useDefaultMargins="true">
 
-    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <android.support.v7.widget.CardView
+        android:id="@+id/home_test"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:theme="@style/AppTheme.PopupOverlay"
@@ -45,9 +45,7 @@
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
-
-    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <android.support.v7.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:theme="@style/AppTheme.PopupOverlay"
@@ -80,8 +78,7 @@
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <android.support.v7.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:theme="@style/AppTheme.PopupOverlay"
@@ -114,8 +111,7 @@
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <android.support.v7.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:theme="@style/AppTheme.PopupOverlay"
@@ -148,8 +144,7 @@
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <android.support.v7.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:theme="@style/AppTheme.PopupOverlay"
@@ -183,8 +178,7 @@
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <android.support.v7.widget.CardView
         android:id="@+id/home_contribute"
         android:layout_width="0dp"
         android:layout_height="0dp"
