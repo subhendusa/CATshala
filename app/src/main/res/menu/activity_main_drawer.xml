@@ -4,7 +4,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/navigation_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_home_18pt_2x"
             android:title="Home"
             android:checked="true"/>
         <item

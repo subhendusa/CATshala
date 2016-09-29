@@ -108,7 +108,10 @@ public class MainActivity extends BaseActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.navigation_exams) {
+        if (id == R.id.navigation_home) {
+            switchFragment(new HomeFragment());
+            getSupportActionBar().setTitle(item.getTitle());
+        } else if (id == R.id.navigation_exams) {
             switchFragment(new ExamFragment());
             getSupportActionBar().setTitle(item.getTitle());
         } else if (id == R.id.navigation_dashboard) {

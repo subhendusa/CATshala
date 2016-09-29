@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:m="http://www.w3.org/1998/Math/MathML">
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=UnifrakturMaguntia">
+    <link rel="stylesheet" href="mathscribe/jqmath-0.4.3.css">
+
+    <script src="mathscribe/jquery-1.4.3.min.js"></script>
+    <script src="mathscribe/jqmath-etc-0.4.5.min.js" charset="utf-8"></script>
+    <script>
+        function paste_formula() {
+            alert("hello");
+
+            var expr = "$$x={-b±√{b^2-4ac}}/{2a}$$"
+            var di = document.getElementById("formula_print");
+
+            di.innerHTML = expr;
+            M.parseMath(di);
+
+        }
+    </script>
+</head>
+<body>
+<input type="textarea" name="formula" id="test_formula" />
+<input type="button" id="convert" value="convert" onclick="paste_formula();" />
+
+<span id="formula_print"></span>
+
+<table class="ruled">
+    <tbody>
+    <tr><td>$$x = {-b±√{b^2-4ac}}/{2a}$$ </td></tr>
+    </tbody>
+</table>
+
+<!--<math>
+    <mo>|</mo><mtable><mtr><mtd rowspan=2 columnspan=3><mn>0</mn></mtd><mtd><mn>1</mn></mtd></mtr>
+    <mtr><mtd><mn>1</mn></mtd></mtr>
+    <mtr><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd></mtr>
+</mtable><mo>|</mo>
+
+    <mspace width="3em"></mspace>
+
+    <mfenced open="{" close="}" separators=";"><mn>1</mn><mn>2</mn><mn>3</mn></mfenced>
+    <mfenced><mn>1</mn><mn>2</mn><mn>3</mn></mfenced>
+
+    <mphantom><mi>abc</mi></mphantom> <mi>abc</mi>
+
+    <mi mathvariant=bold mathcolor="#003399" href="http://mathscribe.com/author/jqmath.html">H</mi>
+    <menclose notation=bottom><mi>v</mi></menclose>
+</math>
+
+$\ov{\table 1; 2}$
+
+<script>
+$(function() {
+	$('body').append(
+		'<p>'+(M.MathML ? 'U' : 'Not u')+'sing MathML; '+navigator.userAgent+'</p>');
+});
+</script>-->
+
+</body>
